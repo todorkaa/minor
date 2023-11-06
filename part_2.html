@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Задания из второй части</title>
+</head>
+<body>
+    <h1>DOM_JS. Считываем информацию из DOM</h1>
+    <p>Паспорт выдан: <span>ГУ МВД РОССИИ ПО РОСТОВСКОЙ ОБЛАСТИ</span></p>
+    <p>Дата выдачи: <span>01.01.2021</span></p>
+    <p>Код подразделения: <span>000-000</span></p>
+    <p>Фамилия: <span>Бояджиева</span></p>
+    <p>Имя: <span>Теодора</span></p>
+    <p>Отчество: <span>Ивова</span></p>
+    <p>Дата рождения: <span>01.09.2004</span></p>
+    <p>Пол: <span>Жен.</span></p>
+    <p>Место рождения: <span>Ростов</span></p>
+    <!-- Добавьте скриншот сюда -->
+    <img src="screenshot.png" alt="Скриншот страницы с паспортом" width="800" height="400">
+    <script>
+        const surname = document.getElementsByTagName('p')[3].childNodes[1].innerText;
+        const name = document.getElementsByTagName('p')[4].childNodes[1].innerText;
+        const birthYear = document.getElementsByTagName('p')[6].childNodes[1].innerText;
+
+        console.log('Фамилия:', surname);
+        console.log('Имя:', name);
+        console.log('Дата рождения:', birthYear);
+    </script>
+    <h1>Изменяем кириллицу на латиницу по клику</h1>
+    <p>Фамилия: <span>Бояджиева</span></p>
+    <p>Имя: <span>Теодора</span></p>
+    <p>Дата рождения: <span>01.09.2004</span></p>
+    <button onclick="changeToLatin()">Изменить на латиницу</button>
+    <script>
+        function changeToLatin() {
+            const surname = document.getElementsByTagName('p')[9].childNodes[1];
+            const name = document.getElementsByTagName('p')[10].childNodes[1];
+
+            surname.innerText = 'Boyadzhieva';
+            name.innerText = 'Teodora';
+        }
+    </script>
+    <h1>Решение алгоритмической задачи</h1>
+    <label for="numberInput">Введите число A: </label>
+    <input type="number" id="numberInput">
+    <button onclick="calculateX()">Вычислить x</button>
+    <p>Результат: <span id="result"></span></p>
+
+    <script>
+        function calculateX() {
+            const a = parseFloat(document.getElementById('numberInput').value);
+            let x;
+
+            if (a < 62) {
+                x = a ** 2 + 4 + 5;
+            } else {
+                x = 1 / (a ** 2) + 4 * a + 5;
+            }
+
+            document.getElementById('result').textContent = x;
+        }
+    </script>
+</body>
+</html>
